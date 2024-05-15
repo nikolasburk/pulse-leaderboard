@@ -1,5 +1,7 @@
 # Prisma Pulse Example: Fullstack Leaderboard (Next.js)
 
+![](./leaderboard.gif)
+
 This repository contains an example app that uses Prisma Pulse in a fullstack application to display and update a real-time leaderboard:
 
 - [Next.js](https://nextjs.org/) (_frontend_) with a [custom server](https://nextjs.org/docs/pages/building-your-application/configuring/custom-server) (_backend_)
@@ -9,7 +11,6 @@ This repository contains an example app that uses Prisma Pulse in a fullstack ap
 
 > **Note**: The custom server is required because Pulse requires a long-running connection to the database. As an alternative to the customer server included in this app, you can also build your own server using a library/framework like Express, Fastify or NestJS.
 
-![](./leaderboard.gif)
 
 ## Prerequisites
 
