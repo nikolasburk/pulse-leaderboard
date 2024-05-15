@@ -10,7 +10,6 @@ interface UpdateEventType {
 }
 
 export default function Leaderboard({ initialPlayers }: { initialPlayers: Player[] }) {
-  console.log(`initialPlayers (props)`, initialPlayers);
   const [players, setPlayers] = useState(initialPlayers || []);
   const [updatedPlayerId, setUpdatedPlayerId] = useState<number | null>(null);
 

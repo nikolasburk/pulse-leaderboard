@@ -1,4 +1,3 @@
-import { withPulse } from "@prisma/extension-pulse";
 import http from "http";
 import prisma from "./lib/prisma";
 import { Server } from "socket.io";
@@ -27,7 +26,7 @@ async function subscribeToPlayerUpdates(io: Server) {
 
   // Handle Prisma subscription events
   for await (const event of subscription) {
-    console.log(`Received event: `, event);
+    console.log(`received event: `, event);
 
     if (event.action === "update") {
       io.sockets.emit("player_points", event);

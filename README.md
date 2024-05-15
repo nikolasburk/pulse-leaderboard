@@ -5,9 +5,10 @@
 This repository contains an example app that uses Prisma Pulse in a fullstack application to display and update a real-time leaderboard:
 
 - [Next.js](https://nextjs.org/) (_frontend_) with a [custom server](https://nextjs.org/docs/pages/building-your-application/configuring/custom-server) (_backend_)
+- [`react-flip-move`](https://github.com/joshwcomeau/react-flip-move) for animating React components
 - [socket.io](https://socket.io/) for the websocket connection between client and server
 - [Prisma Pulse](https://www.prisma.io/data-platform/pulse) to get real-time updates from the database
-- PostgreSQL as the database
+- [PostgreSQL](https://www.postgresql.org/) as the database
 
 > **Note**: The custom server is required because Pulse requires a long-running connection to the database. As an alternative to the customer server included in this app, you can also build your own server using a library/framework like Express, Fastify or NestJS.
 
