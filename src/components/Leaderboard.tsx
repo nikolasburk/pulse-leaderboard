@@ -4,36 +4,38 @@ import { Player } from "@prisma/client";
 import { io, Socket } from "socket.io-client";
 import { useState, useEffect, MutableRefObject, useRef } from "react";
 
-interface EventType {
-  after: Player
+interface UpdateEventType {
+  after: Player;
 }
 
 export default function Leaderboard({ initialPlayers }: { initialPlayers: Player[] }) {
   console.log(`initialPlayers (props)`, initialPlayers);
   const [players, setPlayers] = useState(initialPlayers || []);
 
-  // var socket: any;
   let socketRef: MutableRefObject<Socket | null> = useRef(null);
 
   useEffect(() => {
-
-    console.log(`useEffect`)
+    const updatePoints = (player: Player) => {
+      const newPlayers = players.map((p) => {
+        if (p.id === player.id) {
+          return {
+            ...p,
+            points: player.points,
+          };
+        }
+        return p;
+      });
+      setPlayers(newPlayers);
+    };
 
     const url = `http://localhost:3001`;
 
     socketRef.current = io(url);
-    socketRef.current.on("player_points", (event: EventType) => {
-      console.log(`received event from server`, event)
-      const newPlayers = players.map(p => {
-        if (p.id === event.after.id) {
-          return {
-            ...p,
-            points: event.after.points,
-          }
-        }
-        return p
-      })
-      setPlayers(newPlayers)
+
+    // An update to a player's points
+    socketRef.current.on("player_points", (event: UpdateEventType) => {
+      console.log(`received UPDATE event from server`, event);
+      updatePoints(event.after);
     });
 
     return () => {
