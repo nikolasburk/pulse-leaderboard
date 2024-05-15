@@ -44,13 +44,17 @@ export default function Leaderboard({ initialPlayers }: { initialPlayers: Player
   }, [players]);
 
   return (
-    <div className="w-full h-1/2 bg-red-500">
+    <div className="w-full p-4">
+      <p className="text-center text-gray text-xl font-semibold mb-4">
+        🏆 Welcome to the Real-Time Leaderboard 🏆
+      </p>
       {players
         .sort((a, b) => b.points - a.points)
         .map((player) => {
           return (
-            <div key={player.id}>
-              {player.username} ({player.points})
+            <div key={player.id} className="flex items-center justify-between bg-white p-2 mb-2 rounded-md shadow-md">
+              <div className="text-lg font-semibold text-gray-800">{player.username}</div>
+              <div className="text-lg font-semibold text-gray-600">({player.points})</div>
             </div>
           );
         })}

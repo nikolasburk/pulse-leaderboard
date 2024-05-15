@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "server": "ts-node --project tsconfig.server.json src/server.ts",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
