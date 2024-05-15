@@ -12,7 +12,7 @@ async function main() {
         username: "Ankur",
       },
       {
-        username: "John",
+        username: "Jon",
       },
     ],
   });
