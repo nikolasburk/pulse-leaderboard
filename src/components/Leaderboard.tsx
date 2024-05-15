@@ -48,7 +48,7 @@ export default function Leaderboard({ initialPlayers }: { initialPlayers: Player
         🏆 Welcome to the Real-Time Leaderboard 🏆
       </p>
       <FlipMove>
-        {sortedPlayers.map((player) => (
+        {sortedPlayers.map((player, i) => (
           <div
             key={player.id}
             className={`flex items-center justify-between p-2 mb-2 rounded-md shadow-md relative ${
@@ -56,7 +56,7 @@ export default function Leaderboard({ initialPlayers }: { initialPlayers: Player
             }`}
           >
             <div className="text-lg font-semibold text-gray-800">
-              {player.username}
+              {i === 0 ? `${player.username} 🥇` : player.username}
             </div>
             <div className="text-lg font-semibold text-gray-600">
               ({player.points})

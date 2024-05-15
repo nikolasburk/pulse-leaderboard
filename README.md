@@ -60,7 +60,8 @@ The [Prisma schema file](./prisma/schema.prisma) in this project contains a sing
 npx prisma migrate dev --name init
 ```
 
-You now have an empty `Player` table in your database.
+You now have a table called `Player` in your database. Because this is the initial migration, the Prisma CLI also invoked the [seed script](./prisma/seed.ts) and created three `Player` records in the database.
+
 
 ### 4. Start the server
 
@@ -70,12 +71,21 @@ Start the long-running server that subscribes to changes in the database:
 npm run server
 ```
 
-This will ... TBD
+The server will accept WebSocket connections at `http://localhost:3001`.
+
+Next, run the Next.js app: 
+
+```
+npm run dev
+```
+
+You can open the app at [`http://localhost:3000`](http://localhost:3000).
+
+Every new tab/window you open in your browser and point to that URL will instantiate its own WebSocket connection to the long-running server.
 
 ### 5. Use the app
 
 
-TBD
 
 ## Resources
 
