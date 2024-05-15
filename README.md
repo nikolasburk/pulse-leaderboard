@@ -10,7 +10,7 @@ This repository contains an example app that uses Prisma Pulse in a fullstack ap
 - [Prisma Pulse](https://www.prisma.io/data-platform/pulse) to get real-time updates from the database
 - [PostgreSQL](https://www.postgresql.org/) as the database
 
-> **Note**: The custom server is required because Pulse requires a long-running connection to the database. As an alternative to the customer server included in this app, you can also build your own server using a library/framework like Express, Fastify or NestJS.
+> **Note**: The custom server is required because Pulse requires a long-running connection to the database. As an alternative to the custom server included in this app, you can also build your own server using a library/framework like Express, Fastify or NestJS.
 
 
 ## Prerequisites
