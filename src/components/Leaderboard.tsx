@@ -59,7 +59,7 @@ export default function Leaderboard({ initialPlayers }: { initialPlayers: Player
               {i === 0 ? `${player.username} 🥇` : player.username}
             </div>
             <div className="text-lg font-semibold text-gray-600">
-              ({player.points})
+              {player.points}
             </div>
           </div>
         ))}
