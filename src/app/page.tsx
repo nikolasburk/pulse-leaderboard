@@ -26,7 +26,7 @@ export default async function Home() {
         })}
       </div>
       <p className="text-center text-gray text-xs font-light mt-4">
-        ⚡️ This leaderboard is updated in real-time using Prisma Pulse. Hit one of the buttons above to update the score of a player. 
+        ⚡️ This leaderboard is updated in real-time when a value changes in the database. Hit one of the buttons above to update the score of a player. 
       </p>
       <p className="text-center text-gray text-xs font-light mt-4">
         💡 Tip: Open the app in multiple browser windows to see the update in multiple places at once.

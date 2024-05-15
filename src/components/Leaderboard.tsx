@@ -3,6 +3,7 @@
 import { Player } from "@prisma/client";
 import { io, Socket } from "socket.io-client";
 import { useState, useEffect, MutableRefObject, useRef } from "react";
+import FlipMove from "react-flip-move";
 
 interface UpdateEventType {
   after: Player;
@@ -11,21 +12,19 @@ interface UpdateEventType {
 export default function Leaderboard({ initialPlayers }: { initialPlayers: Player[] }) {
   console.log(`initialPlayers (props)`, initialPlayers);
   const [players, setPlayers] = useState(initialPlayers || []);
+  const [updatedPlayerId, setUpdatedPlayerId] = useState<number | null>(null);
 
   let socketRef: MutableRefObject<Socket | null> = useRef(null);
 
   useEffect(() => {
-    const updatePoints = (player: Player) => {
-      const newPlayers = players.map((p) => {
-        if (p.id === player.id) {
-          return {
-            ...p,
-            points: player.points,
-          };
-        }
-        return p;
-      });
-      setPlayers(newPlayers);
+    const updatePoints = (updatedPlayer: Player) => {
+      setPlayers((prevPlayers) =>
+        prevPlayers.map((player) =>
+          player.id === updatedPlayer.id ? updatedPlayer : player
+        )
+      );
+      setUpdatedPlayerId(updatedPlayer.id);
+      setTimeout(() => setUpdatedPlayerId(null), 1000); // Reset updated player ID after 1 second
     };
 
     const url = `http://localhost:3001`;
@@ -43,21 +42,30 @@ export default function Leaderboard({ initialPlayers }: { initialPlayers: Player
     };
   }, [players]);
 
+  const sortedPlayers = [...players].sort((a, b) => b.points - a.points);
+
   return (
     <div className="w-full p-4">
       <p className="text-center text-gray text-xl font-semibold mb-4">
         🏆 Welcome to the Real-Time Leaderboard 🏆
       </p>
-      {players
-        .sort((a, b) => b.points - a.points)
-        .map((player) => {
-          return (
-            <div key={player.id} className="flex items-center justify-between bg-white p-2 mb-2 rounded-md shadow-md">
-              <div className="text-lg font-semibold text-gray-800">{player.username}</div>
-              <div className="text-lg font-semibold text-gray-600">({player.points})</div>
+      <FlipMove>
+        {sortedPlayers.map((player) => (
+          <div
+            key={player.id}
+            className={`flex items-center justify-between p-2 mb-2 rounded-md shadow-md relative ${
+              updatedPlayerId === player.id ? 'blink' : 'bg-white'
+            }`}
+          >
+            <div className="text-lg font-semibold text-gray-800">
+              {player.username}
             </div>
-          );
-        })}
+            <div className="text-lg font-semibold text-gray-600">
+              ({player.points})
+            </div>
+          </div>
+        ))}
+      </FlipMove>
     </div>
   );
 }
