@@ -85,7 +85,7 @@ Every new tab/window you open in your browser and point to that URL will instant
 
 ### 5. Use the app
 
-
+Click on the buttons at the bottom to increase the score of a player and see how the leaderboard updates in real-time.
 
 ## Resources
 
