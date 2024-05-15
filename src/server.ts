@@ -27,18 +27,10 @@ async function subscribeToPlayerUpdates(io: Server) {
 
   // Handle Prisma subscription events
   for await (const event of subscription) {
-    console.log(`received event: `, event);
+    console.log(`Received event: `, event);
 
     if (event.action === "update") {
       io.sockets.emit("player_points", event);
-    }
-
-    if (event.action === "delete") {
-      io.sockets.emit("player_delete", event);
-    }
-
-    if (event.action === "create") {
-      io.sockets.emit("player_create", event);
     }
   }
 }

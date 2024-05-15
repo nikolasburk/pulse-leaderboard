@@ -1,5 +1,3 @@
-// src/app/page.tsx
-
 "use server"
 
 import prisma from "@/lib/prisma";

@@ -28,7 +28,6 @@ export default function Leaderboard({ initialPlayers }: { initialPlayers: Player
     };
 
     const url = `http://localhost:3001`;
-
     socketRef.current = io(url);
 
     // An update to a player's points

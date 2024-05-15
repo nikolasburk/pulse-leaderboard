@@ -16,7 +16,7 @@ async function main() {
       },
     ],
   });
-  console.log(`Created ${users.count} users`)
+  console.log(`Seeded the database with ${users.count} users.`);
 }
 
 main();

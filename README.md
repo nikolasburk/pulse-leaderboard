@@ -1,10 +1,15 @@
 # Prisma Pulse Example: Fullstack Leaderboard (Next.js)
 
-This repository contains an example app that uses Prisma Pulse in a Next.js fullstack application to display and update a real-time leaderboard:
+This repository contains an example app that uses Prisma Pulse in a fullstack application to display and update a real-time leaderboard:
 
-- Next.js (frontend) with a [custom server]() (backend)
-- Socket.io (websocket connection)
-- Pulse (real-time updates from the database)
+- [Next.js](https://nextjs.org/) (_frontend_) with a [custom server](https://nextjs.org/docs/pages/building-your-application/configuring/custom-server) (_backend_)
+- [socket.io](https://socket.io/) for the websocket connection between client and server
+- [Prisma Pulse](https://www.prisma.io/data-platform/pulse) to get real-time updates from the database
+- PostgreSQL as the database
+
+> **Note**: The custom server is required because Pulse requires a long-running connection to the database. As an alternative to the customer server included in this app, you can also build your own server using a library/framework like Express, Fastify or NestJS.
+
+![](./leaderboard.gif)
 
 ## Prerequisites
 
@@ -57,7 +62,7 @@ You now have an empty `Player` table in your database.
 
 ### 4. Start the server
 
-Start the server that 
+Start the long-running server that subscribes to changes in the database: 
 
 ```
 npm run server
