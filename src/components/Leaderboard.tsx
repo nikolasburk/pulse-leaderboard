@@ -26,7 +26,7 @@ export default function Leaderboard({ initialPlayers }: { initialPlayers: Player
       setTimeout(() => setUpdatedPlayerId(null), 1000); // Reset updated player ID after 1 second
     };
 
-    const url = `http://localhost:3001`;
+    const url = process.env.BACKEND_URL ?? `http://localhost:3001`;
     socketRef.current = io(url);
 
     // An update to a player's points
