@@ -87,6 +87,16 @@ Every new tab/window you open in your browser and point to that URL will instant
 
 Click on the buttons at the bottom to increase the score of a player and see how the leaderboard updates in real-time.
 
+## Deployment
+
+Because the app requires a [custom server](https://nextjs.org/docs/pages/building-your-application/configuring/custom-server) to enable the WebSocket connections, you need to deploy the frontend and the [backend](./src/server.ts) separately.
+
+### Deploying on Railway
+
+#### Deploying the frontend
+
+#### Deploying the backend
+
 ## Resources
 
 - [Pulse examples](https://pris.ly/pulse-examples)

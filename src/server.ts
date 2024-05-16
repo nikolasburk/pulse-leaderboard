@@ -14,14 +14,15 @@ const httpServer = http.createServer((req, res) => {
   }
 });
 
+const corsOrigins = [
+  process.env.CLIENT_URL ?? "http://localhost:3000",
+  "http://localhost:3000",
+]
+console.log(`cors origins: `, corsOrigins)
+
 const io = new Server(httpServer, {
   cors: {
-    origin: [
-      process.env.CLIENT_URL ?? "http://localhost:3000",
-      "http://localhost:3000",
-      "https://pulse-leaderboard-production.up.railway.app",
-      "https://pulse-leaderboard-production-28a7.up.railway.app",
-    ],
+    origin: corsOrigins,
     methods: ["GET", "POST"],
     credentials: true,
   },
@@ -29,7 +30,7 @@ const io = new Server(httpServer, {
 
 const PORT = process.env.PORT || 3001;
 httpServer.listen(PORT, async () => {
-  console.log(`Socket.io server is running on port ${PORT}`);
+  console.log(`socket.io server is running on port ${PORT}`);
   await subscribeToPlayerUpdates(io);
 });
 
