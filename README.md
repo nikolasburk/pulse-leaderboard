@@ -93,6 +93,8 @@ Because the app requires a [custom server](https://nextjs.org/docs/pages/buildin
 
 ### Deploying on Railway
 
+In the following, you find instructions to deploy the app via [Railway](https://railway.app).
+
 #### Deploying the frontend
 
 #### Deploying the backend
