@@ -19,6 +19,7 @@ const io = new Server(httpServer, {
     origin: [
       process.env.CLIENT_URL ?? "http://localhost:3000",
       "http://localhost:3000",
+      "https://pulse-leaderboard-production.up.railway.app",
       "https://pulse-leaderboard-production-28a7.up.railway.app",
     ],
     methods: ["GET", "POST"],
