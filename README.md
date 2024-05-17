@@ -93,9 +93,14 @@ Because the app requires a [custom server](https://nextjs.org/docs/pages/buildin
 
 ### Deploying on Railway
 
-In the following, you find instructions to deploy the app via [Railway](https://railway.app).
+In the following, you find instructions to deploy the app via [Railway](https://railway.app). In order to deploy successfully, you need:
+- a Railway account
+- the Railway CLI installed on your machine
+
 
 #### Deploying the frontend
+
+Create a new
 
 #### Deploying the backend
 
